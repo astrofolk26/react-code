@@ -9,7 +9,7 @@ const page = () => {
                  <section className='grid grid-cols-1 sm:grid-cols-2 gap-5'>
                    <Image
                      src="/assets/images/security/vedic.jpg"
-                     alt="logo"
+                     alt="vedic"
                      width={450}
                      height={500}
                      className=""

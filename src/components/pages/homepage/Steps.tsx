@@ -15,8 +15,8 @@ Latest Articles</span> In Blog
         <section className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5 justify-between   ">
           <div className="mb-10 sm:mb-0   text-center sm:text-left flex flex-col justify-center ">
             <Image
-              src="/assets/images/Security/marriage.jpg"
-              alt="logo"
+                          src="/assets/images/security/marriage.jpg"
+              alt="delay in marriage"
               width={300}
               height={300}
               className="mb-5 mx-auto sm:mx-0 h-[300px]"
@@ -31,7 +31,7 @@ Latest Articles</span> In Blog
 
           <div className="mb-10 sm:mb-0   text-center sm:text-left flex flex-col justify-center ">
             <Image
-              src="/assets/images/Security/backtoVedic.jpg"
+                          src="/assets/images/security/backtoVedic.jpg"
               alt=">Back to Vadic"
               width={300}
               height={300}
@@ -46,7 +46,7 @@ Latest Articles</span> In Blog
           </div>
           <div className="text-center sm:text-left flex flex-col justify-center ">
             <Image
-              src="/assets/images/Security/newastro.jpg"
+                          src="/assets/images/security/newastro.jpg"
               alt="logo"
               width={300}
               height={300}
