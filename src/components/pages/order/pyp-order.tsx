@@ -39,7 +39,10 @@ const simpleNumber =
 
     const handleSubmit =async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        formData.price="$35 | INR3100";
+        const price="35";
+        const price1= "3100";
+        formData.reportType="Personalized Yearly Prediction";
+        formData.price="35";
         formData.orderId = "PYP-"+ simpleNumber;
         formData.orderDate =  dateTime.toDateString();
        // console.log("Form submitted:", formData);
@@ -49,6 +52,8 @@ const simpleNumber =
       formData
     );
 const orderI=formData.orderId;
+localStorage.setItem("orderId", orderI);
+localStorage.setItem("price", price);
     // Reset form
     setFormData({
       fullName: "",
@@ -69,7 +74,7 @@ const orderI=formData.orderId;
     //e.currentTarget.reset();
 
     // Redirect to thank you page
-    router.push(`/thankyou?id=${orderI}`);
+    router.push(`/thankyou`);
   } catch (error) {
     console.error("Error submitting form:", error);
   }
@@ -223,8 +228,12 @@ const orderI=formData.orderId;
                 </div>
                 <div style={sidebarItemStyle}>
                     <label style={labelStyle}>Price:</label>
-                    <p style={{ margin: "0", color: "#f46417ff", fontSize: "24px", fontWeight: "bold" }}>{"$35 | INR3100"}</p>
+                    <p style={{ margin: "0", color: "#f46417ff", fontSize: "24px", fontWeight: "bold" }}>{"35 $"}</p>
                 </div>
+                  {/* <div style={sidebarItemStyle}>
+                    <label style={labelStyle}>Price (INR):</label>
+                    <p style={{ margin: "0", color: "#f59b1cff", fontSize: "24px", fontWeight: "bold" }}>{pricei}</p>
+                </div> */}
             </div>
         </div>
     );

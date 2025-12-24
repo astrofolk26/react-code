@@ -4,7 +4,6 @@ import React, { useState} from "react";
 import { useSearchParams,useRouter } from "next/navigation";
 import axios from 'axios';
 
-
 function AstrologyForm() {
     const [formData, setFormData] = useState({
         fullName: "",
@@ -27,49 +26,59 @@ function AstrologyForm() {
 
     const searchParams = useSearchParams();
     const type = new URLSearchParams(searchParams.toString()).get("type") ;
-     let price ="";
+     let price ="",pricei="";
     let consultationType ="";
 
     if (type=="v1")
     {
-      price ="$15/ INR1100";
+      price ="15";
+      pricei = "1100";
+
       consultationType = "Upto 15 mintuse Vastu";
     }
    else if (type=="v2")
     {
-      price ="$25/ INR1800";
+        price ="25";
+      pricei = "1800";
+     
       consultationType = "Upto 30 mintuse Vastu";
     }
 
     else if (type=="v3")
     {
-      price ="$32/ INR2500";
+        price ="32";
+      pricei = "2500";
       consultationType = "Upto 45 mintuse Vastu";
     }
     else if (type=="v4")
     {
-      price ="$40/ INR3000";
+      price ="40";
+      pricei = "3000";
       consultationType = "upto 60 mintuse Vastu"
     }
 else if (type=="c1")
     {
-      price ="$15 | INR1100";
+      price ="15";
+      pricei = "1100";
       consultationType = "Upto 15 mintuse Astrology";
     }
    else if (type=="c2")
     {
-      price ="$25 | INR1800";
+      price ="25";
+      pricei = "1800";
       consultationType = "Upto 30 mintuse Astrology";
     }
 
     else if (type=="c3")
     {
-      price ="$32 | INR2500";
+      price ="32";
+      pricei = "2500";
       consultationType = "Upto 45 mintuse Astrology";
     }
     else if (type=="c4")
     {
-      price ="$40 | INR3000";
+      price ="40";
+      pricei = "3000";
       consultationType = "upto 60 mintuse Astrology"
     }
 
@@ -77,6 +86,8 @@ else if (type=="c1")
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
+
+   
 const dateTime = new Date();
    const router = useRouter();
 const randomNumber = Math.floor(Math.random() * 900) + 100;
@@ -88,13 +99,15 @@ const simpleNumber =
         formData.price=price;
         formData.reportType =consultationType;
         formData.orderId = type?.toUpperCase() + simpleNumber;
-        formData.orderDate =  dateTime.toDateString();
+        formData.orderDate =  dateTime.toLocaleString();
                try {
     await axios.post(
       "https://api.sheetbest.com/sheets/efe335b0-0875-4525-9d21-c28da47e3e43",
       formData
     );
 const orderI=formData.orderId;
+localStorage.setItem("orderId", orderI);
+localStorage.setItem("price", price);
     // Reset form
     setFormData({  fullName: "",
        gender: "",
@@ -116,7 +129,7 @@ const orderI=formData.orderId;
     //e.currentTarget.reset();
 
     // Redirect to thank you page
-    router.push(`/thankyou?id=${orderI}`);
+    router.push(`/thankyou`);
   } catch (error) {
     console.error("Error submitting form:", error);
   }
@@ -265,12 +278,15 @@ const orderI=formData.orderId;
                     </select>
                 </div>
                  <div>
-                    <label style={labelStyle}>Consultation Date and Time:</label>
-                    <input type="datetime-local" name="consultationDateTime" value={formData.consultationDateTime} onChange={handleChange} style={inputStyle} required />
+                    <label style={labelStyle}>Consultation Date:</label>
+                    <input type="date" name="consultationDateTime" value={formData.consultationDateTime} onChange={handleChange} style={inputStyle} required />
                 </div>
+              
                 <button type="submit" style={buttonStyle} onMouseOver={(e) => e.currentTarget.style.backgroundColor = "#45a049"} onMouseOut={(e) => e.currentTarget.style.backgroundColor = "#4CAF50"}>
-                    Submit
+                    Submit for payment
                 </button>
+
+           
             </form>
 
             <div style={sidebarStyle}>
@@ -281,8 +297,13 @@ const orderI=formData.orderId;
                 </div>
                 <div style={sidebarItemStyle}>
                     <label style={labelStyle}>Price:</label>
-                    <p style={{ margin: "0", color: "#4CAF50", fontSize: "24px", fontWeight: "bold" }}>{price}</p>
+                    <p style={{ margin: "0", color: "#f59b1cff", fontSize: "24px", fontWeight: "bold" }}>{price} $</p>
                 </div>
+                {/* <div style={sidebarItemStyle}>
+                    <label style={labelStyle}>Price (INR):</label>
+                    <p style={{ margin: "0", color: "#f59b1cff", fontSize: "24px", fontWeight: "bold" }}>{pricei}</p>
+                </div> */}
+                 
             </div>
         </div>
     );

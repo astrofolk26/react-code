@@ -24,7 +24,8 @@ function ReForm() {
 
     const searchParams = useSearchParams();
     const type = new URLSearchParams(searchParams.toString()).get("type") ;
-     let price ="$35 | INR 2900";
+     let price ="35";
+     let pricei="2900";
     let consultationType ="";
 
     if (type=="rkt")
@@ -47,12 +48,14 @@ function ReForm() {
 else if (type=="num")
     {
      consultationType = "Personalized Numerology Report";
-     price ="$30 | INR 2100";
+     price ="30";
+     pricei="2100";
     }
    else if (type=="llp")
     {
       consultationType = "Compatibilty Matching";
-       price ="$30 | INR 2100";
+       price ="30";
+      pricei="2100";
     }
 
     else if (type=="btr")
@@ -62,17 +65,20 @@ else if (type=="num")
     else if (type=="aq")
     {
       consultationType = "Ask Question Report";
-       price ="$21 | INR 1600";
+       price ="21";
+      pricei="1600";
     }
     else if (type=="cbp")
     {
       consultationType = "Child Birth Prediction  Report";
-        price ="$ 30/ INR 2500";
+        price ="30";
+      pricei="2500";
     }
     else if (type=="ea")
     {
       consultationType = "Education Forecast Report";
-      price ="$ 30/ INR 2500";
+      price ="30";
+      pricei="2500";
     }
     else if (type=="mc")
     {
@@ -87,8 +93,9 @@ else if (type=="num")
     else if (type=="np")
     {
       consultationType = "Nakshatra Production Report";
-       price ="$21 | INR 1800";
-    
+       price ="21";
+      pricei="1800";
+
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -114,6 +121,8 @@ const simpleNumber =
       formData
     );
     const orderI=formData.orderId;
+      localStorage.setItem("orderId", orderI);
+localStorage.setItem("price", price);
     // Reset form
         setFormData({
         fullName: "",
@@ -135,7 +144,7 @@ const simpleNumber =
     //e.currentTarget.reset();
 
     // Redirect to thank you page
-    router.push(`/thankyou?id=${orderI}`);
+    router.push(`/thankyou`);
   } catch (error) {
     console.error("Error submitting form:", error);
   }    };
@@ -283,8 +292,12 @@ const simpleNumber =
                 </div>
                 <div style={sidebarItemStyle}>
                     <label style={labelStyle}>Price:</label>
-                    <p style={{ margin: "0", color: "#e16d14ff", fontSize: "24px", fontWeight: "bold" }}>{price}</p>
+                    <p style={{ margin: "0", color: "#f46417ff", fontSize: "24px", fontWeight: "bold" }}>{price} $</p>
                 </div>
+                            {/* <div style={sidebarItemStyle}>
+                    <label style={labelStyle}>Price (INR):</label>
+                    <p style={{ margin: "0", color: "#f59b1cff", fontSize: "24px", fontWeight: "bold" }}>{pricei}</p>
+                </div> */}
             </div>
         </div>
     );

@@ -2,7 +2,6 @@
   "name": "astrofolk",
   "version": "0.2.0",
   "private": true,
-  
   "scripts": {
     "dev": "dotenv -c -- next dev --turbopack",
     "build": "next build",
@@ -14,6 +13,7 @@
   "dependencies": {
     "@actions/core": "^1.6.0",
     "@actions/http-client": "^3.0.0",
+    "@paypal/react-paypal-js": "^8.9.2",
     "@types/crypto-js": "^4.2.2",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.13.2",
@@ -21,7 +21,7 @@
     "crypto-js": "^4.2.0",
     "dotenv-cli": "^8.0.0",
     "emailjs-com": "^3.2.0",
-     "next": "15.3.4",
+    "next": "15.3.4",
     "next-image-export-optimizer": "^1.19.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
@@ -42,5 +42,4 @@
     "tailwindcss": "^4",
     "typescript": "5.9.3"
   }
-  
 }

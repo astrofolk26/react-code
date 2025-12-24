@@ -23,7 +23,7 @@ function RForm() {
 
     const searchParams = useSearchParams();
     const type = new URLSearchParams(searchParams.toString()).get("type") ;
-     let price ="$201 | INR 12000";
+     let price ="201", pricei="12000";
     let consultationType ="";
 
     if (type=="ss")
@@ -71,30 +71,34 @@ else if (type=="vp")
     else if (type=="mr")
     {
       consultationType = "Personalized Meditation Room Access"
-      price ="$30 | INR 2100";
+      price ="30";
+      pricei="2100";
    
     }
      else if (type=="nr")
     {
       consultationType = "Personalized Natural Remedies"
-      price ="$20 | INR 1500";
+      price ="20";
+      pricei="1500";
    
     }else if (type=="mu")
     {
       consultationType = "Personalized Mudra Room Access"
-      price ="$21 | INR 1500";
-   
+      price ="21";
+      pricei="1500";
     }
      else if (type=="yog")
     {
       consultationType = "Personalized Yoga Room Access"
-      price ="$21 | INR 1500";
+      price ="21";
+      pricei="1500";
    
     }
      else if (type=="prp")
     {
       consultationType = "Personalized Rudrabhishek Pooja & Yagna"
-      price ="$201 | INR 12000";
+      price ="201";
+      pricei="12000";
    
     }
 
@@ -102,95 +106,112 @@ else if (type=="vp")
 else if (type=="prp")
     {
       consultationType = "Personalized Rudrabhishek Pooja & Yagna"
-      price ="$201 | INR 12000";
+       price ="201";
+      pricei="12000";
    
     }
 else if (type=="prp")
     {
       consultationType = "Personalized Rudrabhishek Pooja & Yagna";
-      price ="$201 | INR 12000";
+       price ="201";
+      pricei="12000";
    
     }else if (type=="py")
     {
       consultationType = "Planetary Yantras";
-      price ="$51 | INR 2100";
+      price ="51";
+      pricei="2100";
    
     }else if (type=="by")
     {
       consultationType = "Balarishta Yantra";
-       price ="$51 | INR 2100";
+       price ="51";
+      pricei="2100";
    
     }else if (type=="sy")
     {
       consultationType = "Shree Yantra";
-     price ="$51 | INR 2100";
+     price ="51";
+      pricei="2100";
    
     }else if (type=="gy")
     {
       consultationType = "Ganesh Yantra";
-       price ="$51 | INR 2100";
+       price ="51";
+      pricei="2100";
    
     }else if (type=="suy")
     {
       consultationType = "Surya Yantra";
-       price ="$51 | INR 2100";
+       price ="51";
+      pricei="2100";
    
     }else if (type=="cy")
     {
       consultationType = "Chandra Yantra";
-       price ="$51 | INR 2100";
+       price ="51";
+      pricei="2100";
    
     }else if (type=="ky")
     {
       consultationType = "Ketu Yantra";
-       price ="$51 | INR 2100";
+       price ="51";
+      pricei="2100";
    
     }
     else if (type=="ry")
     {
       consultationType = "Rahu Yantra";
-       price ="$51 | INR 2100";
+       price ="51";
+      pricei="2100";
    
     }else if (type=="jy")
     {
       consultationType = "Jupiter Guru Yantra";
-       price ="$51 | INR 2100";
+       price ="51";
+      pricei="2100";
    
     }
     else if (type=="hk")
     {
       consultationType = "Hanuman Kavach";
-       price ="$51 | INR 2100";
+       price ="51";
+      pricei="2100";
    
     }
     else if (type=="gay")
     {
       consultationType = "Ganesh Yagna";
-       price ="$201 | INR 12000";
+       price ="201";
+      pricei="12000";
    
     }
      else if (type=="vy")
     {
       consultationType = "Sudharshana Yagna";
-       price ="$201 | INR 12000";
+       price ="201";
+      pricei="12000";
    
     }
      else if (type=="sg")
     {
       consultationType = "Santana Gopala Yagna";
-       price ="$201 | INR 12000";
+       price ="201";
+      pricei="12000";
    
     }
      else if (type=="chy")
     {
       consultationType = "Chandi Yagna";
-       price ="$201 | INR 12000";
+       price ="201";
+      pricei="12000";
    
     }
      else if (type=="ky")
     {
       consultationType = "Saraswati Yagna";
-       price ="$201 | INR 12000";
+       price ="201";
+      pricei="12000";
    
     }
     else 
@@ -223,6 +244,8 @@ const simpleNumber =
       formData
     );
     const orderI=formData.orderId;
+    localStorage.setItem("orderId", orderI);
+localStorage.setItem("price", price);
     // Reset form
     setFormData({ fullName: "", gender: "", email: "",
       mobile: "",
@@ -240,7 +263,7 @@ const simpleNumber =
     //e.currentTarget.reset();
 
     // Redirect to thank you page
-    router.push(`/thankyou?id=${orderI}`);
+    router.push(`/thankyou`);
   } catch (error) {
     console.error("Error submitting form:", error);
   }
@@ -380,8 +403,12 @@ const simpleNumber =
                 </div>
                 <div style={sidebarItemStyle}>
                     <label style={labelStyle}>Price:</label>
-                    <p style={{ margin: "0", color: "#4CAF50", fontSize: "24px", fontWeight: "bold" }}>{price}</p>
+                    <p style={{ margin: "0", color: "#f46417ff", fontSize: "24px", fontWeight: "bold" }}>{price} $</p>
                 </div>
+                  {/* <div style={sidebarItemStyle}>
+                    <label style={labelStyle}>Price (INR):</label>
+                    <p style={{ margin: "0", color: "#f59b1cff", fontSize: "24px", fontWeight: "bold" }}>{pricei}</p>
+                </div> */}
             </div>
         </div>
     );
