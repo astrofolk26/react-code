@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { useSearchParams,useRouter } from "next/navigation";
 import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 
 
@@ -11,7 +10,7 @@ const ThankYou = () => {
   // const searchParams = useSearchParams();
   // const orderId = new URLSearchParams(searchParams.toString()).get("id") ;
   const orderId = localStorage.getItem("orderId");
-  const router = useRouter();
+  // const router = useRouter();
  const intialOptions = { clientId: "AYd7dDgMjsLuRugJiaQO-owAzOF-6aoGHIO3G12S0HlAqu9onApbC0soFCF444C18gjzn6w-L5h5aHik", currency: "USD"   };  
     const createOrder = (data: any, actions: any) => {
         return actions.order.create({

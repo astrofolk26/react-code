@@ -40,7 +40,7 @@ const simpleNumber =
     const handleSubmit =async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const price="35";
-        const price1= "3100";
+        // const price1= "3100";
         formData.reportType="Personalized Yearly Prediction";
         formData.price="35";
         formData.orderId = "PYP-"+ simpleNumber;
