@@ -405,10 +405,10 @@ localStorage.setItem("price", price);
                     <label style={labelStyle}>Price:</label>
                     <p style={{ margin: "0", color: "#f46417ff", fontSize: "24px", fontWeight: "bold" }}>{price} $</p>
                 </div>
-                  {/* <div style={sidebarItemStyle}>
-                    <label style={labelStyle}>Price (INR):</label>
-                    <p style={{ margin: "0", color: "#f59b1cff", fontSize: "24px", fontWeight: "bold" }}>{pricei}</p>
-                </div> */}
+                 <div style={sidebarItemStyle}>
+                    <label style={labelStyle}>Price:</label>
+                    <p style={{ margin: "0", color: "#f59b1cff", fontSize: "24px", fontWeight: "bold" }}>{pricei} INR</p>
+                </div>
             </div>
         </div>
     );
