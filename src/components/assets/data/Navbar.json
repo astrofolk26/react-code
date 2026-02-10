@@ -35,12 +35,8 @@
     "title": "Education Forecast",
     "link": "/education-astrology",
       "children": []
-  },
-  {
-    "id": 7,
-    "title": "Astro Course",
-    "link": "/astrology-course",
-      "children": []
   }
+  
+
  
 ]

@@ -4,18 +4,14 @@ import React from "react";
 import Link from "next/link";
 const About = () => {
     return (
-        <section className="padding  text-white">
+        
+     <section className="padding  text-white">
              <Container width>
-        <section className="sm:grid justify-between" style={{  marginBottom: '5%' }}>
-          <section className=" ">
-            {/* <h1 className="title text-3xl sm:text-[40px]">
-                          <span className="text-[var(--white)]">New Year 2026 - </span> New Beginings Astrological Awakening
-                         
-            </h1> */}
-            {/* <p className="mb-5">
-             Step into the year with your unique astrology guide — a celestial journey crafted for your soul.
-            </p> */}
-            <div className=" flex sm:flex gap-5">
+        <section className="items-center justify-center justify-between mt-10" style={{  marginBottom: '5%' }}>
+          <section className="flex flex-wrap justify-center ">
+           
+            <div className="flex flex-col sm:flex-row flex-wrap gap-5">
+
                           <Link href="/live-astro-counselling">
                               <input
                                   
@@ -36,14 +32,7 @@ const About = () => {
                               height={70}
                           />         </Link>
 
-                          <Link href="/yearly-prediction">  <input
-
-                              className="font-bold btnLink w-full flex justify-center disabled:bg-[var(--gray)] mb-5 sm:m-0"
-                              type="submit"
-                              value="Personalized Yearly Report"
-                              width={340}
-                              height={70}
-                          />         </Link>
+                         
 
                            <Link href="/birth-time-rectification">  <input
 
